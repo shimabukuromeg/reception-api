@@ -1,0 +1,68 @@
+openapi: "3.0.2"
+info:
+  description: "受付アプリAPI"
+  version: "0.0.1"
+  title: "受付アプリAPI"
+paths:
+  "/api/v1/check-ins":
+    post:
+      summary: "チェックインするPOSTエンドポイント"
+      description: "チェックインするPOSTエンドポイント"
+      requestBody:
+        description: checkin to create
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                checkin_category_ids:
+                  title: チェックインカテゴリーID
+                  type: array
+                  example: [1, 2]
+      responses:
+        '201':
+          description: CREATED
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/Checkin'
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          title: ユーザーID
+          type: number
+          example: 1
+        name:
+          title: ユーザー名
+          type: string
+          example: ユーザー001
+        email:
+          title: email
+          type: string
+          example: user001@example.com
+    Checkin:
+      type: object
+      properties:
+        id:
+          title: Checkin ID
+          type: number
+          example: 1
+        user:
+          $ref: "#/components/schemas/User"            
+        checkin_categories:
+          type: array
+          items:
+            $ref: "#/components/schemas/CheckinCategory"
+    CheckinCategory:
+      type: object
+      properties:
+        name:
+          title: カテゴリ名
+          type: string
+          example: イベント  
+
+
+        
+
