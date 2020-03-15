@@ -55,6 +55,9 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/CheckInCategory"
+          example:
+            - name: イベント
+            - name: 仕事
     CheckInCategory:
       type: object
       properties:
