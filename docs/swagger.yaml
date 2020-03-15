@@ -19,12 +19,12 @@ paths:
                   type: array
                   example: [1, 2]
       responses:
-        '201':
+        "201":
           description: CREATED
           content:
             "application/json":
               schema:
-                $ref: '#/components/schemas/Checkin'
+                $ref: "#/components/schemas/CheckIn"
 components:
   schemas:
     User:
@@ -42,27 +42,23 @@ components:
           title: email
           type: string
           example: user001@example.com
-    Checkin:
+    CheckIn:
       type: object
       properties:
         id:
-          title: Checkin ID
+          title: CheckIn ID
           type: number
           example: 1
         user:
-          $ref: "#/components/schemas/User"            
+          $ref: "#/components/schemas/User"
         checkin_categories:
           type: array
           items:
-            $ref: "#/components/schemas/CheckinCategory"
-    CheckinCategory:
+            $ref: "#/components/schemas/CheckInCategory"
+    CheckInCategory:
       type: object
       properties:
         name:
           title: カテゴリ名
           type: string
-          example: イベント  
-
-
-        
-
+          example: イベント
