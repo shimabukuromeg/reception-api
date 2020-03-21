@@ -25,6 +25,23 @@ paths:
             "application/json":
               schema:
                 $ref: "#/components/schemas/CheckIn"
+    get:
+      summary: "チェックイン一覧のエンドポイント"
+      description: "チェックイン一覧のエンドポイント"
+      parameters:
+        - in: query
+          name: user_id
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: チェックイン一覧
+          content:
+            "application/json":
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CheckIn"
 components:
   schemas:
     User:
